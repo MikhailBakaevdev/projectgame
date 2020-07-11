@@ -1,0 +1,19 @@
+.game-container__elem {
+    width: 100px;
+    height: 100px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.closed {
+    background-color: '';
+}
+
+.open {
+    background-color: '';
+}
+
+.hide {
+    background-color: grey;
+    opacity: 0.5;
+}
