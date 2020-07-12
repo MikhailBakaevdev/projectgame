@@ -25,43 +25,44 @@ let images = [<img src={firs} id="1" alt=""/>,
             <img src={five} id="5" alt=""/>,
             <img src={six} id="6" alt=""/>,
             <img src={seven} id="7" alt=""/>,
-            <img src={eight}  id="8" alt=""/>];
-            
+            ];
+            //переделать в state где 8 элементов
+
+            [ { image : <img src={eight} alt=""/>, isOpen , isMatched , id : 8 }];
+
+
+
+
+//useeffect с пустым массивом перенести в него  duplicate elements
             
             
     const [valueState,setValueState] = useState('closed');
     const [openProp,setOpenProp] = useState(false);
 
-    function handleClick(){
-        if (valueState === 'closed'){
-            setValueState('open')
-        } else {                            //switch tiles
-            setValueState('closed')
+    function handleClick(i) {
+        if (tiles.i  === isOpen ) {
+
         }
+        return 
+    };
 
-        if (valueState === 'closed') {
-            setOpenProp(false)
-        }else{
-            setOpenProp(true)
-        }
-        
-    }
-
-
+     
+    //загнать функцию в изначальный стейт 
 
     
         
    
     return (<div className="game-container">
-        { duplicateElements(images,2).map((image) => (
+        { tiles.map((tile,i) => (
             <Tile
-                key={image.id}
-                image={image}
-                valueState={valueState}
-                openProp={openProp}
+                key={i}
+                symbolId={tile.id}
+                tileId={i}
+                image={tile.image}
+                isOpen={tile.isOpen}
+                isMatched={tile.isMatched}
                 handleClick={handleClick}
             />
-            
         ))}
         </div>
          

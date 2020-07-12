@@ -1,9 +1,14 @@
 import React from 'react';
 import './tile.css';
 
-function Tile ({image, valueState, matchProp, openProp, key, id , handleClick}) {
-    
-    return <div  className={`game-container__elem ${valueState}`} key={key} isMatched={matchProp} isOpen={openProp} onClick={() => handleClick(id)}>
+function Tile ({image,  isMatched, isOpen,  symbolId , handleClick}) {
+    const tileStateClass = isMatched 
+            ? 'hide' 
+            : isOpen 
+            ? 'open' 
+            : 'closed';
+    return <div  className={`game-container__elem ${tileStateClass}`} 
+                    onClick={() => handleClick(symbolId)}>
                {image}
             </div>
 
