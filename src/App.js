@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
 import Board from './gameComponents/board/Board';
-import './gameComponents/images';
-
-
-
 
 function App() {
 
-
+ return   <div className="App">
+            <Board/>
+          </div>
 
 
 }
