@@ -16,32 +16,40 @@ function Board () {
  const [tiles,setTiles]= useState([
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false , id : 1 },
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false  , id : 1 },
-        { image : <img src={second} id="2" alt=""/>, isOpened: false, isMatched: false , id : 2 },
-        { image : <img src={second} id="2" alt=""/>, isOpened: false, isMatched: false , id : 2 },
-        { image : <img src={third} id="3" alt=""/> , isOpened: false, isMatched: false  , id : 3 },
-        { image : <img src={third} id="3" alt=""/>, isOpened: false, isMatched: false , id : 3 },
-        { image : <img src={four} id="4" alt=""/>, isOpened: false, isMatched: false , id : 4 },
-        { image : <img src={four} id="4" alt=""/>, isOpened: false, isMatched: false , id : 4 },
-        { image : <img src={five} id="5" alt=""/>, isOpened: false, isMatched: false , id : 5 },
-        { image : <img src={five} id="5" alt=""/>, isOpened: false, isMatched: false , id : 5 },
-        { image : <img src={six} id="6" alt=""/>, isOpened: false, isMatched: false , id : 6 },
-        { image : <img src={six} id="6" alt=""/>, isOpened: false, isMatched: false , id : 6 },
-        { image :  <img src={seven} id="7" alt=""/>, isOpened: false, isMatched: false , id : 7 },
-        { image :  <img src={seven} id="7" alt=""/>, isOpened: false, isMatched: false , id : 7 },
+        { image : <img src={second}  alt=""/>, isOpened: false, isMatched: false , id : 2 },
+        { image : <img src={second}  alt=""/>, isOpened: false, isMatched: false , id : 2 },
+        { image : <img src={third}  alt=""/> , isOpened: false, isMatched: false  , id : 3 },
+        { image : <img src={third}  alt=""/>, isOpened: false, isMatched: false , id : 3 },
+        { image : <img src={four}  alt=""/>, isOpened: false, isMatched: false , id : 4 },
+        { image : <img src={four}  alt=""/>, isOpened: false, isMatched: false , id : 4 },
+        { image : <img src={five}  alt=""/>, isOpened: false, isMatched: false , id : 5 },
+        { image : <img src={five}  alt=""/>, isOpened: false, isMatched: false , id : 5 },
+        { image : <img src={six}  alt=""/>, isOpened: false, isMatched: false , id : 6 },
+        { image : <img src={six}  alt=""/>, isOpened: false, isMatched: false , id : 6 },
+        { image :  <img src={seven}  alt=""/>, isOpened: false, isMatched: false , id : 7 },
+        { image :  <img src={seven}  alt=""/>, isOpened: false, isMatched: false , id : 7 },
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
-        { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 }
+        { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
     ]
     
  )
     
     function handleClick(i) {
-        if (tiles[i].isOpened === false) {
-            setTiles(tiles.isOpened === true)
+        if (tiles[i].isOpened === true) {
+            return
         }
 
-        if (tiles[i].isOpened === true  && tiles[i].id === true) {
-            setTiles(tiles[i].isMatched === true)
+        if (tiles[i].isOpened === false) {
+            const newTiles = [...tiles];
+            newTiles[i].isOpened = true;
+            setTiles(newTiles);
+            
         }
+
+        
+       
+
+ 
     }
 
   
@@ -51,7 +59,7 @@ function Board () {
         { tiles.map((tile,i) => (
             <Tile
                 key={i}
-                symbolId={tile.id}
+                index={i}
                 image={tile.image}
                 isOpened={tile.isOpened}
                 isMatched={tile.isMatched}
