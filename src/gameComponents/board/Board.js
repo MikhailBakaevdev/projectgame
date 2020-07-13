@@ -12,61 +12,53 @@ import eight from '../images/icon8.svg';
 
 
 function Board () {
-    function duplicateElements(array, times) {
-        return array.reduce((res, current) => {
-            return res.concat(Array(times).fill(current));
-        }, [])
-    }
+
+ const [tiles,setTiles]= useState([
+        { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false , id : 1 },
+        { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false  , id : 1 },
+        { image : <img src={second} id="2" alt=""/>, isOpened: false, isMatched: false , id : 2 },
+        { image : <img src={second} id="2" alt=""/>, isOpened: false, isMatched: false , id : 2 },
+        { image : <img src={third} id="3" alt=""/> , isOpened: false, isMatched: false  , id : 3 },
+        { image : <img src={third} id="3" alt=""/>, isOpened: false, isMatched: false , id : 3 },
+        { image : <img src={four} id="4" alt=""/>, isOpened: false, isMatched: false , id : 4 },
+        { image : <img src={four} id="4" alt=""/>, isOpened: false, isMatched: false , id : 4 },
+        { image : <img src={five} id="5" alt=""/>, isOpened: false, isMatched: false , id : 5 },
+        { image : <img src={five} id="5" alt=""/>, isOpened: false, isMatched: false , id : 5 },
+        { image : <img src={six} id="6" alt=""/>, isOpened: false, isMatched: false , id : 6 },
+        { image : <img src={six} id="6" alt=""/>, isOpened: false, isMatched: false , id : 6 },
+        { image :  <img src={seven} id="7" alt=""/>, isOpened: false, isMatched: false , id : 7 },
+        { image :  <img src={seven} id="7" alt=""/>, isOpened: false, isMatched: false , id : 7 },
+        { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
+        { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 }
+    ]
     
-let images = [<img src={firs} id="1" alt=""/>,
-            <img src={second} id="2" alt=""/>,
-            <img src={third} id="3" alt=""/>,
-            <img src={four} id="4" alt=""/>,
-            <img src={five} id="5" alt=""/>,
-            <img src={six} id="6" alt=""/>,
-            <img src={seven} id="7" alt=""/>,
-            ];
-            //переделать в state где 8 элементов
-
-            [ { image : <img src={eight} alt=""/>, isOpen , isMatched , id : 8 }];
-
-
-
-
-//useeffect с пустым массивом перенести в него  duplicate elements
-            
-            
-    const [valueState,setValueState] = useState('closed');
-    const [openProp,setOpenProp] = useState(false);
-
+ )
+    
     function handleClick(i) {
-        if (tiles.i  === isOpen ) {
-
+        if (tiles[i].isOpened === false) {
+            setTiles(tiles.isOpened === true)
         }
-        return 
-    };
 
-     
-    //загнать функцию в изначальный стейт 
+        if (tiles[i].isOpened === true  && tiles[i].id === true) {
+            setTiles(tiles[i].isMatched === true)
+        }
+    }
 
-    
-        
+  
+
    
-    return (<div className="game-container">
+    return <div className="game-container">
         { tiles.map((tile,i) => (
             <Tile
                 key={i}
                 symbolId={tile.id}
-                tileId={i}
                 image={tile.image}
-                isOpen={tile.isOpen}
+                isOpened={tile.isOpened}
                 isMatched={tile.isMatched}
                 handleClick={handleClick}
             />
         ))}
         </div>
-         
-    )
 };
 
 

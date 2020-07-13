@@ -1,10 +1,10 @@
 import React from 'react';
 import './tile.css';
 
-function Tile ({image,  isMatched, isOpen,  symbolId , handleClick}) {
+function Tile ({image,  isMatched, isOpened,  symbolId , handleClick}) {
     const tileStateClass = isMatched 
             ? 'hide' 
-            : isOpen 
+            : isOpened 
             ? 'open' 
             : 'closed';
     return <div  className={`game-container__elem ${tileStateClass}`} 
