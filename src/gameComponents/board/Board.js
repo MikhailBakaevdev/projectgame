@@ -35,22 +35,37 @@ function Board () {
  )
     
     function handleClick(i) {
-        if (tiles[i].isOpened === true) {
+        if (tiles[i].isOpened || tiles[i].isMatched) {
             return
         }
 
-        if (tiles[i].isOpened === false) {
-            const newTiles = [...tiles];
+        if (!tiles[i].isOpened) {
+            const newTiles = tiles.map(tile => Object.assign({}, tile)); 
             newTiles[i].isOpened = true;
-            setTiles(newTiles);
-            
+            const openedIndex =  tiles.findIndex( el => el.isOpened === true)
+            console.log(openedIndex,tiles)
+            if (openedIndex !== -1) {
+                if( tiles[openedIndex].id === newTiles[i].id) {
+                    newTiles[openedIndex].isMatched = true
+                    newTiles[i].isMatched = true
+                }
+                newTiles[openedIndex].isOpened = false
+                newTiles[i].isOpened = false
+            }
+            setTiles(newTiles)
+            //set tiles
+            //filter
         }
-
+            
+            
+            
+      }
+            
+            
+            
         
-       
+    
 
- 
-    }
 
   
 
