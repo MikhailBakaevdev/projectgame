@@ -9,6 +9,7 @@ import five from '../images/icon5.svg';
 import six from '../images/icon6.svg';
 import seven from '../images/icon7.svg';
 import eight from '../images/icon8.svg';
+import Score from '../score/Score';
 
 
 function Board () {
@@ -33,7 +34,7 @@ function Board () {
     ]
     
  )
-    
+    const [counter,setCounter] = useState(0)
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
             return
@@ -52,24 +53,18 @@ function Board () {
                 newTiles[openedIndex].isOpened = false
                 newTiles[i].isOpened = false
             }
+            
+            const count = newTiles.filter(el => el.isMatched).length / 2 ;
+            console.log(count)
+            
             setTiles(newTiles)
-            //set tiles
-            //filter
+            setCounter(count)
         }
             
             
             
-      }
+    }
             
-            
-            
-        
-    
-
-
-  
-
-   
     return <div className="game-container">
         { tiles.map((tile,i) => (
             <Tile
@@ -81,6 +76,7 @@ function Board () {
                 handleClick={handleClick}
             />
         ))}
+        <Score counter={counter}/>
         </div>
 };
 

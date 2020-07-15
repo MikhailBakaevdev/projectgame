@@ -4,6 +4,10 @@
     margin-top: 15px;
     margin-left: 20px;
 }
+.game-container__elem:hover {
+    transform: scale(1.5,1.5);
+    transition: 0.5s linear;
+}
 img {
     width: 80px;
     height: 80px;
@@ -12,14 +16,16 @@ img {
 }
 .closed {
     background-color: rgb(3, 3, 3);
+    transform: rotateY( 180deg )
     
 }
 
 .open {
     background-color: '';
+    transform: rotateY( 180deg )
 }
 
 .hide {
     background-color: grey;
-    opacity: 0.5;
+    opacity: 0.4;
 }
