@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './count.css';
 
 function Score ({counter}) {
-    return <span>
+    return <span className="counter">
         Your score : { counter }
         </span>
 }

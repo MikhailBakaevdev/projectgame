@@ -33,7 +33,7 @@ function Board () {
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
     ]
     
- )
+ ) 
     const [counter,setCounter] = useState(0)
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
@@ -56,7 +56,6 @@ function Board () {
             
             const count = newTiles.filter(el => el.isMatched).length / 2 ;
             console.log(count)
-            
             setTiles(newTiles)
             setCounter(count)
         }
