@@ -13,7 +13,7 @@ import Score from '../score/Score';
 
 
 function Board () {
-
+ const [counter,setCounter] = useState(0)
  const [tiles,setTiles]= useState([
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false , id : 1 },
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false  , id : 1 },
@@ -34,7 +34,7 @@ function Board () {
     ]
     
  ) 
-    const [counter,setCounter] = useState(0)
+    
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
             return
@@ -55,7 +55,6 @@ function Board () {
             }
             
             const count = newTiles.filter(el => el.isMatched).length / 2 ;
-            console.log(count)
             setTiles(newTiles)
             setCounter(count)
         }
@@ -76,6 +75,16 @@ function Board () {
             />
         ))}
         <Score counter={counter}/>
+        <button className="game-container__button-reset" onClick={()=> {
+            setCounter(0)
+            setTiles(tiles.map(tile => {
+                tile.isOpened = false
+                tile.isMatched = false
+                return Object.assign({}, tile)
+            }))
+        }}>
+            RESET
+        </button>
         </div>
 };
 

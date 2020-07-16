@@ -5,3 +5,19 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.game-container__button-reset {
+        border: none;
+        margin-left: 10%;
+        background-color: firebrick;
+        cursor: pointer;
+        border-radius: 5px;
+        width: 70px;
+        height: 50px;
+        outline: none;
+}
+.game-container__button-reset:hover {
+        background-color: aqua;
+        transition: 0.5s linear;
+}
+
