@@ -85,6 +85,11 @@ function Board () {
         }}>
             RESET
         </button>
+        <button className="game-container__button-shuffle" onClick= {() => {
+            setTiles(tiles.sort(() => Math.random() - 0.5))
+        }}>
+            SHUFFLE
+        </button>
         </div>
 };
 
