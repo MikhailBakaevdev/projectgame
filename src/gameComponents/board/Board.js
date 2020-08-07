@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import './board.css';
 import Tile from '../tile/Tile';
 import firs from '../images/icon1.svg';
@@ -14,7 +14,7 @@ import Score from '../score/Score';
 
 function Board () {
  const [counter,setCounter] = useState(0)
- const [tiles,setTiles]= useState([
+ const [tiles,setTiles]= useState([ 
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false , id : 1 },
         { image : <img src={firs}  alt=""/>, isOpened: false, isMatched: false  , id : 1 },
         { image : <img src={second}  alt=""/>, isOpened: false, isMatched: false , id : 2 },
@@ -32,8 +32,10 @@ function Board () {
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
     ]
-    
- ) 
+ )  
+    useEffect(() => {
+        setTiles(tiles.sort(() => 0.5 - Math.random()))
+    },[])
     
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
@@ -84,11 +86,6 @@ function Board () {
             }))
         }}>
             RESET
-        </button>
-        <button className="game-container__button-shuffle" onClick= {() => {
-            setTiles(tiles.sort(() => Math.random() - 0.5))
-        }}>
-            SHUFFLE
         </button>
         </div>
 };
