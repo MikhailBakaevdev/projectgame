@@ -1,4 +1,4 @@
-import React , { useState, } from 'react';
+import React , { useState, useEffect } from 'react';
 import './board.css';
 import Tile from '../tile/Tile';
 import firs from '../images/icon1.svg';
@@ -33,6 +33,9 @@ function Board () {
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
     ]
  )  
+    useEffect(() => {
+        (tiles.sort(() => 0.5 - Math.random()))
+    },[])
 
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
