@@ -34,7 +34,7 @@ function Board () {
     ]
  )  
     useEffect(() => {
-        (tiles.sort(() => 0.5 - Math.random()))
+        setTiles(tiles => tiles.sort(() => 0.5 - Math.random()))
     },[])
 
     function handleClick(i) {
