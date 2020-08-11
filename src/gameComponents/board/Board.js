@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from 'react';
+import React , { useState, } from 'react';
 import './board.css';
 import Tile from '../tile/Tile';
 import firs from '../images/icon1.svg';
@@ -33,10 +33,7 @@ function Board () {
         { image : <img src={eight} alt=""/>, isOpened: false , isMatched: false , id : 8 },
     ]
  )  
-    useEffect(() => {
-        setTiles(tiles.sort(() => 0.5 - Math.random()))
-    },[])
-    
+
     function handleClick(i) {
         if (tiles[i].isOpened || tiles[i].isMatched) {
             return
@@ -79,7 +76,7 @@ function Board () {
         <Score counter={counter}/>
         <button className="game-container__button-reset" onClick={()=> {
             setCounter(0)
-            setTiles(tiles.map(tile => {
+            setTiles(tiles.sort(() => 0.5 - Math.random()).map(tile => {
                 tile.isOpened = false
                 tile.isMatched = false
                 return Object.assign({}, tile)
